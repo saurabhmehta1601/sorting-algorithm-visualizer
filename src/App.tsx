@@ -1,12 +1,19 @@
+import "./App.css"
 import React from 'react';
-import SortingVisualizer from "./components/SortingVisualizer"
-import './App.css';
+import BarsContainer from "./components/BarsContainer"
+import Header from "./components/Header"
+import Footer from "./components/Footer";
 
 function App() {
+
   return (
-    <div>
-      <SortingVisualizer />
-    </div>
+    <>
+    <Header />
+    <main>
+        <BarsContainer />
+    </main>
+    <Footer />
+    </>
   );
 }
 

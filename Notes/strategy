@@ -1,0 +1,16 @@
+# Build a header 
+
+# Main Part
+
+Components :
+ * Create a method for generating random array and button to reset array.
+ * Create A bar with fill component.
+ * Create Slider for controlling width and number of bars
+ * Button for selecting sorting algorithm.
+ * Algorithm for sorting do only bubble sort then think about others . 
+
+Approach :
+ * In algorithm pass unsorted array and return and 2D array with input array state after each swap.
+ * Button for prev and next step can be added to show step from 2D array .
+
+# build a footer
