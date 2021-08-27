@@ -2,15 +2,28 @@ import React from 'react'
 import styled from "styled-components"
 
 type barProps = {
-    height:number;
+    height:string;
     bgColor: string;
 }
 
 const StyledBar= styled.div<barProps>`
     border: 2px solid black ;
-    height: ${props => props.height}px ; 
+    height: ${props => props.height} ; 
     background-color: ${props => props.bgColor};
-    width: 50px ; 
+    width: 40px ; 
+    display:grid;
+    place-items:center;
+
+    h4 {
+        font-size:1.125rem;
+        font-style:bold;
+        transform:rotateZ(-90deg);
+    }
 `
 
-export default StyledBar
+export default function Bar({height,bgColor}: barProps){
+    return (<StyledBar height={height} bgColor={bgColor}>
+        <h4><b>{parseInt(height)}</b></h4> 
+            </StyledBar>)
+}
+

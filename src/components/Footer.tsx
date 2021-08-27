@@ -7,11 +7,9 @@ export default function Footer() {
     </StyledFooter>)
 }
 
-
 const StyledFooter = styled.footer`
     background-color:#333;
     color:#ddd;
     text-align: center ;
     padding: 1em ;
-    margin-top: auto ;
 `

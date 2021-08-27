@@ -3,6 +3,8 @@ import React from 'react';
 import BarsContainer from "./components/BarsContainer"
 import Header from "./components/Header"
 import Footer from "./components/Footer";
+import PlaybackControls from "./components/PlaybackControls";
+import AlgoSelector from "./components/AlgoSelector";
 
 function App() {
 
@@ -10,7 +12,9 @@ function App() {
     <>
     <Header />
     <main>
+        <AlgoSelector />
         <BarsContainer />
+        <PlaybackControls  />
     </main>
     <Footer />
     </>

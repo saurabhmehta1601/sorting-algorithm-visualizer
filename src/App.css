@@ -5,14 +5,16 @@
 }
 
 body{
+    width:100vw ;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
 }
 
 main{
     flex: 1;
+    position: relative;
+    padding-bottom:0.5em ;
+    background-color:purple;
 }
 
-footer {
-    flex: 1;
-}
