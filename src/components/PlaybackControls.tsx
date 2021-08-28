@@ -1,16 +1,16 @@
+import 'react-rangeslider/lib/index.css'
+import styled from "styled-components"
+import Slider from "react-rangeslider"
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import styled from "styled-components"
 import { RootState } from "../redux/store"
 import {increateCurrentStepIndex,decreaseCurrentStepIndex,setRunningState} from "../redux/features/sortSlice"
-import Slider from "react-rangeslider"
-import 'react-rangeslider/lib/index.css'
 import useInterval from "../hooks/useInterval"
 
 export default function  PlaybackControls(){
 
     const [speed,setSpeed] = useState(100)
-    const {isRunning} = useSelector((state: RootState) =>  state.sort)
+    const {isRunning,currentStepIndex,sortingSteps} = useSelector((state: RootState) =>  state.sort)
     const dispatch = useDispatch()
 
     const moveNextStep = () => { dispatch(increateCurrentStepIndex())}
@@ -20,6 +20,9 @@ export default function  PlaybackControls(){
     const myInterval = useInterval(()=>{
         if(isRunning){
             moveNextStep()
+            if(currentStepIndex === sortingSteps.length - 1){
+               dispatch(setRunningState(false)) 
+            }
         }else{
             if(myInterval){
                 myInterval()
@@ -48,7 +51,7 @@ const StyledControl= styled.div`
     }
     i{
         color: wheat;
-        font-size: 1.4rem ;
+        font-size: 1.9rem ;
     }
     .slider{
         display: block; 
