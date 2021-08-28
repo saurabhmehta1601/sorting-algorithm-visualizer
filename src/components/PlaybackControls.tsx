@@ -35,7 +35,7 @@ export default function  PlaybackControls(){
            <a href="#" onClick={moveNextStep}><i className="fas fa-forward"></i></a> 
         </div>
         <div className="slider">
-            <Slider value={speed} tooltip={false} min={100} max={1000} onChange={(value) => setSpeed(value)}/>
+            <Slider value={speed} reverse={true} tooltip={false} min={50} max={1000} onChange={(value) => setSpeed(value)}/>
         </div>
             </StyledControl>)
 }
