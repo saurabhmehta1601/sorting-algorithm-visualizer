@@ -9,7 +9,11 @@ console.log(sortingSteps);
 
     return (<StyledBarsContainer>
         {sortingSteps[currentStepIndex].arrayState.map((h,idx) => {
-           return <Bar key={idx} height={h} bgColor="red" />
+           return <Bar 
+            key={idx} 
+            height={h} 
+            isActive={sortingSteps[currentStepIndex].iteratingElementIndex === idx}  
+           />
         })}
     </StyledBarsContainer>)
 }

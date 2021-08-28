@@ -3,13 +3,13 @@ import styled from "styled-components"
 
 type barProps = {
     height:number;
-    bgColor: string;
+    isActive: boolean;
 }
 
 const StyledBar= styled.div<barProps>`
     border: 2px solid black ;
     height: ${props => props.height +  "vh"} ; 
-    background-color: ${props => props.bgColor};
+    background-color: ${props => props.isActive ? "yellow": "red"};
     width: 40px ; 
     display:grid;
     place-items:center;
@@ -21,9 +21,9 @@ const StyledBar= styled.div<barProps>`
     }
 `
 
-export default function Bar({height,bgColor}: barProps){
-    return (<StyledBar height={height} bgColor={bgColor}>
-        <h4><b>{height.toString()}</b></h4> 
+export default function Bar({height,isActive}: barProps){
+    return (<StyledBar height={height} isActive={isActive}>
+                <h4><b>{height.toString()}</b></h4> 
             </StyledBar>)
 }
 

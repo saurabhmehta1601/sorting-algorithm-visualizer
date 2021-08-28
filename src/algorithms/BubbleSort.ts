@@ -15,7 +15,7 @@ export default function BubbleSort(inputArr: number[]){
     
    const arr = [...inputArr]
 
-   const results= [{ iteratingElementIndex: 0,swappedElementIndex: -1,arrayState: inputArr}] 
+   const results= [] 
    let n = arr.length
 
    for(let i = 0; i< n-1 ;i++){
@@ -26,7 +26,7 @@ export default function BubbleSort(inputArr: number[]){
            if(arr[j] > arr[j+1]){
               isSorted = false 
               swap(arr,j,j+1)  
-              currentIterationResult.swappedElementIndex = j + 1
+              currentIterationResult.swappedElementIndex = j 
            }
            currentIterationResult.arrayState = [...arr]
           results.push(currentIterationResult)
