@@ -5,6 +5,7 @@ import Header from "./components/Header"
 import Footer from "./components/Footer";
 import PlaybackControls from "./components/PlaybackControls";
 import AlgoSelector from "./components/AlgoSelector";
+import { useSelector } from "react-redux";
 
 function App() {
 

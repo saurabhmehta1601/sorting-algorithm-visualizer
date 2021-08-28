@@ -1,14 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import algoReducer  from "./features/algoSlice"
+import sortReducer from "./features/sortSlice"
 
 export const store = configureStore({
     reducer: {
-        algo: algoReducer
+        sort: sortReducer
     },
 })
-
-//COPIED FROM OFFICIAL DOCS 
-//Infer the `RootState` and `AppDispatch` types from the store itself
+// eslint-disable-next-line no-undef
 export type RootState = ReturnType<typeof store.getState>
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch

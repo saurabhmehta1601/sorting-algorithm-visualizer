@@ -1,12 +1,13 @@
 import React from "react"
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import styled from "styled-components"
+
+
 
 export default function AlgoSelector(){
     const dispatch  = useDispatch()
-    const handleChange = (e:  React.ChangeEvent<HTMLSelectElement>) => {
-        console.log(e.target.value)
-    }
+    const  state = useSelector(state => state)
+    const handleChange = (e:  React.ChangeEvent<HTMLSelectElement>) => { console.log("changed") }
 
     return  (
         <StyledAlgoSelector  onChange={handleChange}>
