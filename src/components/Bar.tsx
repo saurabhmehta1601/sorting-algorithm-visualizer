@@ -2,13 +2,13 @@ import React from 'react'
 import styled from "styled-components"
 
 type barProps = {
-    height:string;
+    height:number;
     bgColor: string;
 }
 
 const StyledBar= styled.div<barProps>`
     border: 2px solid black ;
-    height: ${props => props.height} ; 
+    height: ${props => props.height +  "vh"} ; 
     background-color: ${props => props.bgColor};
     width: 40px ; 
     display:grid;
@@ -23,7 +23,7 @@ const StyledBar= styled.div<barProps>`
 
 export default function Bar({height,bgColor}: barProps){
     return (<StyledBar height={height} bgColor={bgColor}>
-        <h4><b>{parseInt(height)}</b></h4> 
+        <h4><b>{height.toString()}</b></h4> 
             </StyledBar>)
 }
 

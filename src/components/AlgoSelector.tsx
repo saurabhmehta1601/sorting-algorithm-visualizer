@@ -1,12 +1,18 @@
 import React from "react"
+import {useDispatch} from "react-redux"
 import styled from "styled-components"
 
 export default function AlgoSelector(){
+    const dispatch  = useDispatch()
+    const handleChange = (e:  React.ChangeEvent<HTMLSelectElement>) => {
+        console.log(e.target.value)
+    }
+
     return  (
-        <StyledAlgoSelector>
-            <option>Bubble Sort</option>
-            <option>SelectionSort</option>
-            <option>MergeSort</option>
+        <StyledAlgoSelector  onChange={handleChange}>
+            <option value="BubbleSort">Bubble Sort</option>
+            <option value="SelectionSort">SelectionSort</option>
+            <option value="MergeSort">MergeSort</option>
         </StyledAlgoSelector>
     )
 }

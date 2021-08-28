@@ -2,8 +2,11 @@ import React from "react"
 import styled from "styled-components"
 
 export default function  PlaybackControls(){
+    const startSort = () =>{
+        console.log("hellow ")
+    }
     return (<StyledControl>
-                <button>Start</button>
+                <button onClick={startSort}>Start</button>
             </StyledControl>)
 }
 
