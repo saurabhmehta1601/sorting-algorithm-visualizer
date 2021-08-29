@@ -35,6 +35,9 @@ const StyledHeader = styled.header`
     margin: 0; 
     width:100vw ; 
 
+    .logo{
+        letter-spacing:  2px ;
+    }
     .controls {
         margin-left: auto ;
         padding: 0.5em 1em ;

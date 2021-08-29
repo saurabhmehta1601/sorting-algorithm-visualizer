@@ -1,3 +1,8 @@
+:root{
+    --ff-heading: 'Allan', cursive;
+    --ff-body: 'Lato', sans-serif;
+}
+
 *,*::before,*::after {
     margin:0 ;
     padding: 0;
@@ -8,7 +13,12 @@ body{
     width:100vw ;
     overflow-x: hidden;
     display: flex;
+    font-family: var(--ff-body) ;
     flex-direction: column;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: var(--ff-heading);
 }
 
 main{
