@@ -4,8 +4,7 @@ import { RootState } from "../redux/store"
 import Bar from "./Bar"
 
 export default function BarsContainer(){
-const { currentStepIndex,sortingSteps }= useSelector((state : RootState) => state.sort)
-console.log(sortingSteps[0].arrayState.length)
+    const { currentStepIndex,sortingSteps }= useSelector((state : RootState) => state.sort)
 
     return (<StyledBarsContainer>
         {sortingSteps[currentStepIndex].arrayState.map((h,idx) => {
@@ -13,6 +12,8 @@ console.log(sortingSteps[0].arrayState.length)
             key={idx} 
             height={h} 
             isActive={sortingSteps[currentStepIndex].iteratingElementIndex === idx}  
+            isSorted={sortingSteps[currentStepIndex].sortedElementIndexes.includes(idx)}
+            doneSorting= {currentStepIndex  === sortingSteps.length }
            />
         })}
     </StyledBarsContainer>)

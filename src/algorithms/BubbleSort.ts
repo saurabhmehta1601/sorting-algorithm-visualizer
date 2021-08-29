@@ -8,7 +8,8 @@ function swap(arr: number[], num1: number , num2 : number) {
 interface ICurrentIterationResult  {
     iteratingElementIndex: number,
     swappedElementIndex: number,
-    arrayState: number[]
+    arrayState: number[],
+    sortedElementIndexes: number[]
 }
 
 export default function BubbleSort(inputArr: number[]){
@@ -16,13 +17,15 @@ export default function BubbleSort(inputArr: number[]){
    const arr = [...inputArr]
 
    const results= [] 
+   const sortedElementIndexes: number[] = []
    let n = arr.length
+   let i, j
 
-   for(let i = 0; i< n-1 ;i++){
+   for(i = 0; i< n-1 ;i++){
        let isSorted = true 
-       for(let j= 0; j< n-i-1 ; j++){
+       for(j= 0; j< n-i-1 ; j++){
 
-           const currentIterationResult : ICurrentIterationResult= {iteratingElementIndex: j,swappedElementIndex: -1,arrayState: []}
+           const currentIterationResult : ICurrentIterationResult= {iteratingElementIndex: j,swappedElementIndex: -1,arrayState: [], sortedElementIndexes: [...sortedElementIndexes]}
            if(arr[j] > arr[j+1]){
               isSorted = false 
               swap(arr,j,j+1)  
@@ -31,7 +34,13 @@ export default function BubbleSort(inputArr: number[]){
            currentIterationResult.arrayState = [...arr]
           results.push(currentIterationResult)
        }
+       sortedElementIndexes.push(j)
        if(isSorted){
+            // Since no swap in iteration all elements are sorted so inserting an extra array state similar to last one but with
+           // all elements as sorted
+           
+           const sortedIndexes =  Array.from(Array(n)).map((_i,idx) => idx)
+            results.push({...results[results.length - 1], sortedElementIndexes: sortedIndexes})
            break
        }
    }
