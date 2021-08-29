@@ -1,12 +1,13 @@
 import React, {useState} from "react"
 import {useDispatch} from "react-redux"
 import styled from "styled-components"
+import { INITIAL_ARRAY_SIZE } from "../redux/features/sortSlice"
 
 import {updateBarsCount} from "../redux/features/sortSlice"
 
 export default function Header () {
    
-    const  [barsCount,setBarsCount] = useState("10")
+    const  [barsCount,setBarsCount] = useState(INITIAL_ARRAY_SIZE.toString())
     const  dispatch = useDispatch()
     
     const handleBarWidthChange = (e: React.ChangeEvent<HTMLInputElement>) => {

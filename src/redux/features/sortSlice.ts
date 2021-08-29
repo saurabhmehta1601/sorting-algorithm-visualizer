@@ -2,7 +2,7 @@ import { getRandomArray } from "../../utils/getRandomArray"
 import BubbleSort from "../../algorithms/BubbleSort"
 import {createSlice,PayloadAction} from "@reduxjs/toolkit"
 
-const INITIAL_ARRAY_SIZE = 10
+export const INITIAL_ARRAY_SIZE = 20
 const MIN_ARRAY_ELEMENT_VALUE = 10
 const MAX_ARRAY_ELEMENT_VALUE = 60
 
@@ -10,7 +10,7 @@ const initialState = {
     isRunning: false,
     currentStepIndex: 0,
     algorithm:'BubbleSort' ,
-    sortingSteps: BubbleSort(getRandomArray(10,MIN_ARRAY_ELEMENT_VALUE, MAX_ARRAY_ELEMENT_VALUE)) 
+    sortingSteps: BubbleSort(getRandomArray(INITIAL_ARRAY_SIZE,MIN_ARRAY_ELEMENT_VALUE, MAX_ARRAY_ELEMENT_VALUE)) 
 } 
 
 export const sortingSlice = createSlice({

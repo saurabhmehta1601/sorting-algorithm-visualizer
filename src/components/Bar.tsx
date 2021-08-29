@@ -11,12 +11,9 @@ const StyledBar= styled.div<barProps>`
     background-color: ${props => props.isActive ? "yellow": "red"};
     width:0.5em ;
     flex: 1;
-
-    h4 {
-        font-size:1.125rem;
-        font-style:bold;
-        transform:rotateZ(-90deg);
-    }
+    position:relative;
+    border:none ;
+    border-radius:15px;
 `
 
 export default function Bar({height,isActive}: barProps){

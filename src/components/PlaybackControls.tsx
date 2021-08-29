@@ -84,7 +84,7 @@ const StyledControl= styled.div`
     
     .slider{
         display: block; 
-        width:40vw;
+        width:min(60vw, 540px);
         margin: auto ;
     }
 
