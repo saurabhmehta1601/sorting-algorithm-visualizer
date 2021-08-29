@@ -15,9 +15,16 @@ interface ICurrentIterationResult  {
 export default function BubbleSort(inputArr: number[]){
     
    const arr = [...inputArr]
-
-   const results= [] 
    const sortedElementIndexes: number[] = []
+
+   const initial = {
+    iteratingElementIndex: 0,
+    swappedElementIndex: -1,
+    arrayState: [...inputArr],
+    sortedElementIndexes: [...sortedElementIndexes]
+   }
+
+   const results= [initial] 
    let n = arr.length
    let i, j
 
@@ -29,7 +36,7 @@ export default function BubbleSort(inputArr: number[]){
            if(arr[j] > arr[j+1]){
               isSorted = false 
               swap(arr,j,j+1)  
-              currentIterationResult.swappedElementIndex = j + 1 
+              currentIterationResult.swappedElementIndex = j 
            }
            currentIterationResult.arrayState = [...arr]
           results.push(currentIterationResult)
