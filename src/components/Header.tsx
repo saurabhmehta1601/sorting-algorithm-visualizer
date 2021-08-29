@@ -1,16 +1,27 @@
-import React from "react"
+import React, {useState} from "react"
+import {useDispatch} from "react-redux"
 import styled from "styled-components"
 
+import {updateBarsCount} from "../redux/features/sortSlice"
 
 export default function Header () {
+   
+    const  [barsCount,setBarsCount] = useState("10")
+    const  dispatch = useDispatch()
+    
+    const handleBarWidthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+       dispatch(updateBarsCount(parseInt(e.target.value))) 
+       setBarsCount(e.target.value) 
+    }
+
     return ( <StyledHeader>
         <div className="logo">
            <h1> Sorting Visualizer </h1>
         </div>
         <div className="controls">
             <div className="control-group">
-                <label htmlFor="bar-width-controller">Bar width</label>    
-                <input name="bar-width-controller" className="bar-width-controller" type="range" min={200}  max={400} />
+                <label htmlFor="bars-adjust">Adjust bars</label>    
+                <input value={barsCount} name="bars-adjust"  onChange={handleBarWidthChange} type="range" min={10}  max={100} />
             </div>
         </div>
             </StyledHeader>)

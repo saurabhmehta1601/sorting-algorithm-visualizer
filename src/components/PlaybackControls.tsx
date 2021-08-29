@@ -7,9 +7,15 @@ import { RootState } from "../redux/store"
 import {increateCurrentStepIndex,decreaseCurrentStepIndex,setRunningState} from "../redux/features/sortSlice"
 import useInterval from "../hooks/useInterval"
 
+
+const INTIAL_SORTING_SPEED = 200
+const  MIN_SORTING_SPEED =  100
+const  MAX_SORTING_SPEED = 700 
+
+
 export default function  PlaybackControls(){
 
-    const [speed,setSpeed] = useState(100)
+    const [speed,setSpeed] = useState(INTIAL_SORTING_SPEED)
     const {isRunning,currentStepIndex,sortingSteps} = useSelector((state: RootState) =>  state.sort)
     const dispatch = useDispatch()
 
@@ -38,13 +44,15 @@ export default function  PlaybackControls(){
            <a href="#" onClick={moveNextStep}><i className="fas fa-forward"></i></a> 
         </div>
         <div className="slider">
-            <Slider value={speed} reverse={true} tooltip={false} min={50} max={1000} onChange={(value) => setSpeed(value)}/>
+            <Slider value={speed} reverse={true} tooltip={false} min={MIN_SORTING_SPEED} max={MAX_SORTING_SPEED} onChange={(value) => setSpeed(value)}/>
         </div>
             </StyledControl>)
 }
 
 const StyledControl= styled.div`
     
+    margin-top:  2vh ;
+
     div{
         display: flex;
         justify-content: space-around;
@@ -55,7 +63,7 @@ const StyledControl= styled.div`
     }
     .slider{
         display: block; 
-        width:40vw;
+        width:60vw;
         margin: auto ;
     }
     .rangeslider-horizontal .rangeslider__fill {

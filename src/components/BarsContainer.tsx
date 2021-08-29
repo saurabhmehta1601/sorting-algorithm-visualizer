@@ -5,7 +5,7 @@ import Bar from "./Bar"
 
 export default function BarsContainer(){
 const { currentStepIndex,sortingSteps }= useSelector((state : RootState) => state.sort)
-console.log(sortingSteps);
+console.log(sortingSteps[0].arrayState.length)
 
     return (<StyledBarsContainer>
         {sortingSteps[currentStepIndex].arrayState.map((h,idx) => {
@@ -20,8 +20,10 @@ console.log(sortingSteps);
 
 const StyledBarsContainer = styled.div`
     display:flex ;
-    padding: 4em 1em 1.4em 1em ;
-    column-gap:4px ;
+    height: 60vh;
+    width:  min(92vw, 980px) ;
+    margin:  0  auto;
+    column-gap:0.225em;
     justify-content:center; 
     align-items:flex-end;
 `
