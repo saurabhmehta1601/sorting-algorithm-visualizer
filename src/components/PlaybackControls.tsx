@@ -19,8 +19,12 @@ export default function  PlaybackControls(){
     const {isRunning,currentStepIndex,sortingSteps} = useSelector((state: RootState) =>  state.sort)
     const dispatch = useDispatch()
 
-    const moveNextStep = () => { dispatch(increateCurrentStepIndex())}
-    const movePrevStep = () => {dispatch(decreaseCurrentStepIndex())}
+    const moveNextStep = () => { dispatch(increateCurrentStepIndex())  }
+    const movePrevStep = () => { dispatch(decreaseCurrentStepIndex())  }
+
+    const handleMovePrevStep =  () =>  { if(!isRunning){ movePrevStep() } }
+    const handleMoveNextStep =  () =>  { if(!isRunning){ moveNextStep() } }
+
     const togglePlayState = () => { dispatch(setRunningState(!isRunning)) }
         
     const myInterval = useInterval(()=>{
@@ -39,9 +43,9 @@ export default function  PlaybackControls(){
 
     return (<StyledControl>
         <div className="playback-controls">
-           <button  onClick={movePrevStep}><i className={`fas fa-backward ${(isRunning ||  currentStepIndex === 0) && "disabled"}`}></i></button> 
+           <button  onClick={handleMovePrevStep}><i className={`fas fa-backward ${(isRunning ||  currentStepIndex === 0) && "disabled"}`}></i></button> 
             <button  onClick={togglePlayState}><i className={isRunning ? "fas fa-pause-circle": "fas fa-play-circle"}></i></button>
-           <button  onClick={moveNextStep}><i className={`fas fa-forward ${(isRunning || currentStepIndex === sortingSteps.length - 1) && "disabled"}`}></i></button> 
+           <button  onClick={handleMoveNextStep}><i className={`fas fa-forward ${(isRunning || currentStepIndex === sortingSteps.length - 1) && "disabled"}`}></i></button> 
         </div>
         <div className="slider">
             <Slider value={speed} reverse={true} tooltip={false} min={MIN_SORTING_SPEED} max={MAX_SORTING_SPEED} onChange={(value) => setSpeed(value)}/>
@@ -59,6 +63,7 @@ const StyledControl= styled.div`
     button {
         background: none ;
         border: none ;
+        outline: none ;
 
         i{
             color: wheat;

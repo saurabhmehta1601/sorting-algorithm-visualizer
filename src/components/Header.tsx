@@ -21,7 +21,7 @@ export default function Header () {
         </div>
         <div className="controls">
             <div className="control-group">
-                <label htmlFor="bars-adjust">Adjust bars</label>    
+                <label htmlFor="bars-adjust">Adjust Bars</label>    
                 <input value={barsCount} name="bars-adjust"  onChange={handleBarWidthChange} type="range" min={10}  max={100} />
             </div>
         </div>
@@ -38,6 +38,7 @@ const StyledHeader = styled.header`
 
     .logo{
         letter-spacing:  2px ;
+        text-indent:  1.5em ;
     }
     .controls {
         margin-left: auto ;
@@ -48,5 +49,9 @@ const StyledHeader = styled.header`
         display: flex ;
         align-items:center;
         column-gap:0.5em ;
+    }
+    label {
+        font-weight: 900 ;
+
     }
 `
