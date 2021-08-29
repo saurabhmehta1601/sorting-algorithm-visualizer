@@ -3,7 +3,7 @@ import Slider from "react-rangeslider"
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../redux/store"
-import {increateCurrentStepIndex,decreaseCurrentStepIndex,setRunningState} from "../redux/features/sortSlice"
+import {increaseCurrentStepIndex,decreaseCurrentStepIndex,setRunningState} from "../redux/features/sortSlice"
 import useInterval from "../hooks/useInterval"
 import 'react-rangeslider/lib/index.css'
 
@@ -19,7 +19,7 @@ export default function  PlaybackControls(){
     const {isRunning,currentStepIndex,sortingSteps} = useSelector((state: RootState) =>  state.sort)
     const dispatch = useDispatch()
 
-    const moveNextStep = () => { dispatch(increateCurrentStepIndex())  }
+    const moveNextStep = () => { dispatch(increaseCurrentStepIndex())  }
     const movePrevStep = () => { dispatch(decreaseCurrentStepIndex())  }
 
     const handleMovePrevStep =  () =>  { if(!isRunning){ movePrevStep() } }

@@ -4,7 +4,7 @@ import BarsContainer from "./components/BarsContainer"
 import Header from "./components/Header"
 import Footer from "./components/Footer";
 import PlaybackControls from "./components/PlaybackControls";
-import AlgoSelector from "./components/AlgoSelector";
+import BarsControls from "./components/BarsControls";
 import { useSelector } from "react-redux";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
     <>
     <Header />
     <main>
-        <AlgoSelector />
+        <BarsControls />
         <BarsContainer />
         <PlaybackControls  />
     </main>

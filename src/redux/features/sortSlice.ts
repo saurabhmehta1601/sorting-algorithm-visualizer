@@ -20,7 +20,7 @@ export const sortingSlice = createSlice({
         setRunningState: (state, action: PayloadAction<boolean>) => {
             state.isRunning = action.payload
         },
-        increateCurrentStepIndex: (state) => {
+        increaseCurrentStepIndex: (state) => {
             if(state.currentStepIndex !== state.sortingSteps.length - 1){
                state.currentStepIndex += 1 
             }
@@ -36,10 +36,17 @@ export const sortingSlice = createSlice({
         updateBarsCount: (state,action: PayloadAction<number>) => {
             state.sortingSteps = BubbleSort(getRandomArray(action.payload,MIN_ARRAY_ELEMENT_VALUE,MAX_ARRAY_ELEMENT_VALUE)) 
             state.currentStepIndex = 0 
+        },
+        restartSort: (state) => {
+            state.currentStepIndex = 0
+        },
+        regenerateBars: (state) => {
+            state.currentStepIndex =  0
+            state.sortingSteps = BubbleSort(getRandomArray(state.sortingSteps[0].arrayState.length, MIN_ARRAY_ELEMENT_VALUE,MAX_ARRAY_ELEMENT_VALUE))
         }
     }
 })
 
-export const { setRunningState ,increateCurrentStepIndex,updateAlgo, decreaseCurrentStepIndex,updateBarsCount} =  sortingSlice.actions
+export const { setRunningState ,increaseCurrentStepIndex,updateAlgo, decreaseCurrentStepIndex,updateBarsCount, restartSort, regenerateBars} =  sortingSlice.actions
 export default sortingSlice.reducer
 
