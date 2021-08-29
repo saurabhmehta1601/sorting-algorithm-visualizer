@@ -1,7 +1,7 @@
 import React from "react"
 import {useDispatch, useSelector} from "react-redux"
 import styled from "styled-components"
-
+import  ReactTooltip from "react-tooltip"
 import  {restartSort, regenerateBars} from  "../redux/features/sortSlice"
 
 
@@ -14,10 +14,12 @@ export default function BarsControls(){
         <Controls>
             <div className="bars-state-controls">
                 <button onClick={() => dispatch(restartSort())}>
-                    RESTART  SORT
+                    <p data-tip="click to  restart the bars sorting from beginning">RESTART  SORT </p>
+                    <ReactTooltip />
                 </button>
                 <button onClick={() => dispatch(regenerateBars())}>
-                    REGENERATE BARS
+                    <p data-tip="click to regenerate new bars group">REGENERATE BARS</p>
+                    <ReactTooltip />
                 </button>
             </div>
 
