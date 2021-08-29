@@ -9,7 +9,7 @@ import 'react-rangeslider/lib/index.css'
 
 
 const INTIAL_SORTING_SPEED = 200
-const  MIN_SORTING_SPEED =  100
+const  MIN_SORTING_SPEED = 10 
 const  MAX_SORTING_SPEED = 700 
 
 

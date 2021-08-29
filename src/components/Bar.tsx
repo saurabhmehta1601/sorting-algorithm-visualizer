@@ -5,12 +5,13 @@ type barProps = {
     height:number;
     isSorted: boolean;
     isActive: boolean;
+    isSwapped: boolean;
     doneSorting:  boolean ;
 }
 
 const StyledBar= styled.div<barProps>`
     height: ${props => props.height +  "vh"} ; 
-    background-color: ${ props => props.doneSorting ? "pink" :props => props.isSorted ? "pink": props.isActive ? "yellow":  "red"};
+    background-color: ${ props => props.doneSorting ? "pink" : props.isSorted ? "pink": props.isSwapped ?  "green" : props.isActive ? "yellow":  "red"};
     width:0.5em ;
     flex: 1;
     position:relative;
@@ -18,9 +19,9 @@ const StyledBar= styled.div<barProps>`
     border-radius:15px;
 `
 
-export default function Bar({height,isActive, isSorted, doneSorting}: barProps){
+export default function Bar({height,isActive, isSorted, doneSorting,isSwapped }: barProps){
 
-    return (<StyledBar height={height} isActive={isActive} isSorted={isSorted} doneSorting={doneSorting} >
+    return (<StyledBar height={height} isActive={isActive} isSorted={isSorted} doneSorting={doneSorting} isSwapped={isSwapped}>
             </StyledBar>)
 }
 

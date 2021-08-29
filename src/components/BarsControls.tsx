@@ -18,7 +18,7 @@ export default function BarsControls(){
                     <ReactTooltip />
                 </button>
                 <button onClick={() => dispatch(regenerateBars())}>
-                    <p data-tip="click to regenerate new bars group">REGENERATE BARS</p>
+                    <p data-tip="click to regenerate different bars group">REGENERATE BARS</p>
                     <ReactTooltip />
                 </button>
             </div>

@@ -29,7 +29,7 @@ export default function BubbleSort(inputArr: number[]){
            if(arr[j] > arr[j+1]){
               isSorted = false 
               swap(arr,j,j+1)  
-              currentIterationResult.swappedElementIndex = j 
+              currentIterationResult.swappedElementIndex = j + 1 
            }
            currentIterationResult.arrayState = [...arr]
           results.push(currentIterationResult)

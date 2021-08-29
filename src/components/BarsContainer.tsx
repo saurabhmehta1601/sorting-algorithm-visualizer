@@ -13,6 +13,7 @@ export default function BarsContainer(){
             height={h} 
             isActive={sortingSteps[currentStepIndex].iteratingElementIndex === idx}  
             isSorted={sortingSteps[currentStepIndex].sortedElementIndexes.includes(idx)}
+            isSwapped={sortingSteps[currentStepIndex].swappedElementIndex === idx}
             doneSorting= {currentStepIndex  === sortingSteps.length }
            />
         })}
