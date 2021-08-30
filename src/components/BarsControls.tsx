@@ -4,20 +4,15 @@ import styled from "styled-components"
 import  ReactTooltip from "react-tooltip"
 import  {restartSort, regenerateBars, updateAlgo} from  "../redux/features/sortSlice"
 import {RootState} from "../redux/store"
-import algos,{algoType} from "../utils/algos"
+import algos from "../utils/algos"
 
 
 export default function BarsControls(){
     const dispatch  = useDispatch()
-    const  currentAlgo = useSelector((state: RootState)=> state.sort.algorithm)
+    const  {algorithm: currentAlgo, currentStepIndex, isRunning}= useSelector((state: RootState)=> state.sort)
 
     const handleChange = (e:  React.ChangeEvent<HTMLSelectElement>) => { 
-        const selectedAlgo =  e.target.value 
-        const allAlgos = algos.map((algo) => algo.value) 
-
-        if(allAlgos.includes(selectedAlgo as algoType) ){
-            dispatch(updateAlgo(selectedAlgo as algoType))
-        }
+            dispatch(updateAlgo(e.target.value))
     }
 
     return  (
@@ -34,7 +29,7 @@ export default function BarsControls(){
             </div>
 
             <div className="algo-selector"  >
-                <select onChange={handleChange} >
+                <select onChange={handleChange} value={currentAlgo} disabled={isRunning || currentStepIndex !== 0}>
                     {algos.map((algo,idx)  => <option key={idx} disabled={algo.value === currentAlgo} value={algo.value}>{algo.name}</option>)} 
                 </select>
             </div>

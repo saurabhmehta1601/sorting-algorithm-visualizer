@@ -1,4 +1,4 @@
-import { getAlgoByName,algoType } from "../../utils/algos"
+import { getAlgoByName} from "../../utils/algos"
 import { getRandomArray } from "../../utils/getRandomArray"
 import BubbleSort from "../../algorithms/BubbleSort"
 import {createSlice,PayloadAction} from "@reduxjs/toolkit"
@@ -33,8 +33,9 @@ export const sortingSlice = createSlice({
                state.currentStepIndex -= 1 
             }
         },
-        updateAlgo: (state, action: PayloadAction<algoType>) => {
+        updateAlgo: (state, action: PayloadAction<string>) => {
             state.algorithm= action.payload
+            //Changing algo clears the sorting step only keep the one you're using
         },
         updateBarsCount: (state,action: PayloadAction<number>) => {
             state.sortingSteps = getAlgoByName(state.algorithm)(getRandomArray(action.payload,MIN_ARRAY_ELEMENT_VALUE,MAX_ARRAY_ELEMENT_VALUE)) 
