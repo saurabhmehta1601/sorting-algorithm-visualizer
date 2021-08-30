@@ -6,7 +6,7 @@ import { RootState } from "../redux/store"
 import {increaseCurrentStepIndex,decreaseCurrentStepIndex,setRunningState} from "../redux/features/sortSlice"
 import useInterval from "../hooks/useInterval"
 import 'react-rangeslider/lib/index.css'
-
+import ReactTooltip from "react-tooltip"
 
 const INTIAL_SORTING_SPEED = 200
 const  MIN_SORTING_SPEED = 10 
@@ -43,23 +43,37 @@ export default function  PlaybackControls(){
 
     return (<StyledControl>
         <div className="playback-controls">
-           <button  onClick={handleMovePrevStep}><i className={`fas fa-backward ${(isRunning ||  currentStepIndex === 0) && "disabled"}`}></i></button> 
-            <button  onClick={togglePlayState}><i className={isRunning ? "fas fa-pause-circle": "fas fa-play-circle"}></i></button>
-           <button  onClick={handleMoveNextStep}><i className={`fas fa-forward ${(isRunning || currentStepIndex === sortingSteps.length - 1) && "disabled"}`}></i></button> 
+           
+            {/*   Move backward button  */}
+            <p data-tip="Move one step backward"  data-type="info">
+               <button  onClick={handleMovePrevStep}><i className={`fas fa-backward ${(isRunning ||  currentStepIndex === 0) && "disabled"}`}></i></button> 
+            </p>
+            <ReactTooltip />
+
+            {/*   pause/unpause button  */}
+            <p data-tip={isRunning ? "pause": "unpause"} data-type="info">
+                <button  onClick={togglePlayState}><i className={isRunning ? "fas fa-pause-circle": "fas fa-play-circle"}></i></button>
+            </p>
+            <ReactTooltip />
+
+            {/*   Move forward button  */}
+            <p data-tip="Move one step forward"  data-type="info">
+               <button  onClick={handleMoveNextStep}><i className={`fas fa-forward ${(isRunning || currentStepIndex === sortingSteps.length - 1) && "disabled"}`}></i></button> 
+            </p>
+            <ReactTooltip />
+
         </div>
         <div className="slider">
-            <Slider value={delay}  tooltip={false} min={MIN_SORTING_SPEED} max={MAX_SORTING_SPEED} onChange={(value) => setDelay(value)}/>
+            <p data-tip="Adjust sorting animation speed" data-type="info">
+                <Slider value={delay}  tooltip={false} min={MIN_SORTING_SPEED} max={MAX_SORTING_SPEED} onChange={(value) => setDelay(value)}/>
+            </p>
+            <ReactTooltip />
         </div>
             </StyledControl>)
 }
 
 const StyledControl= styled.div`
     
-    div{
-        display: flex;
-        justify-content: space-around;
-    }
-
     button {
         background: none ;
         border: none ;
@@ -83,6 +97,8 @@ const StyledControl= styled.div`
     }
 
     .playback-controls{
+        display: flex;
+        justify-content: space-around;
         width:30vw ;
         margin: 4vh auto 2vh; 
     }

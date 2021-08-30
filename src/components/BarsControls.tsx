@@ -14,11 +14,11 @@ export default function BarsControls(){
         <Controls>
             <div className="bars-state-controls">
                 <button onClick={() => dispatch(restartSort())}>
-                    <p data-tip="click to  restart the bars sorting from beginning">RESTART  SORT </p>
+                    <p data-tip="click to  restart the bars sorting from beginning" data-type="info">RESTART  SORT </p>
                     <ReactTooltip />
                 </button>
                 <button onClick={() => dispatch(regenerateBars())}>
-                    <p data-tip="click to regenerate different bars group">REGENERATE BARS</p>
+                    <p data-tip="click to regenerate different bars group" data-type="info" >REGENERATE BARS</p>
                     <ReactTooltip />
                 </button>
             </div>
