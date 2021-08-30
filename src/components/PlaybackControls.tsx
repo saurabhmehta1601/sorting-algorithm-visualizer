@@ -15,7 +15,7 @@ const  MAX_SORTING_SPEED = 700
 
 export default function  PlaybackControls(){
 
-    const [speed,setSpeed] = useState(INTIAL_SORTING_SPEED)
+    const [delay,setDelay] = useState(MAX_SORTING_SPEED - INTIAL_SORTING_SPEED)
     const {isRunning,currentStepIndex,sortingSteps} = useSelector((state: RootState) =>  state.sort)
     const dispatch = useDispatch()
 
@@ -38,7 +38,7 @@ export default function  PlaybackControls(){
                 myInterval()
             }
         }
-    }, speed)
+    }, MAX_SORTING_SPEED - delay)
     
 
     return (<StyledControl>
@@ -48,7 +48,7 @@ export default function  PlaybackControls(){
            <button  onClick={handleMoveNextStep}><i className={`fas fa-forward ${(isRunning || currentStepIndex === sortingSteps.length - 1) && "disabled"}`}></i></button> 
         </div>
         <div className="slider">
-            <Slider value={speed} reverse={true} tooltip={false} min={MIN_SORTING_SPEED} max={MAX_SORTING_SPEED} onChange={(value) => setSpeed(value)}/>
+            <Slider value={delay}  tooltip={false} min={MIN_SORTING_SPEED} max={MAX_SORTING_SPEED} onChange={(value) => setDelay(value)}/>
         </div>
             </StyledControl>)
 }
