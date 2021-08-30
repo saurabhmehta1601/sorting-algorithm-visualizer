@@ -64,9 +64,9 @@ export default function  PlaybackControls(){
 
         </div>
         <div className="slider">
-            <p data-tip="Adjust sorting animation speed" data-type="info">
+            <div data-tip="Adjust sorting animation speed" data-type="info">
                 <Slider value={delay}  tooltip={false} min={MIN_SORTING_SPEED} max={MAX_SORTING_SPEED} onChange={(value) => setDelay(value)}/>
-            </p>
+            </div>
             <ReactTooltip />
         </div>
             </StyledControl>)
