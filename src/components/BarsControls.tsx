@@ -1,14 +1,24 @@
-import React from "react"
+import  React from "react"
 import {useDispatch, useSelector} from "react-redux"
 import styled from "styled-components"
 import  ReactTooltip from "react-tooltip"
-import  {restartSort, regenerateBars} from  "../redux/features/sortSlice"
+import  {restartSort, regenerateBars, updateAlgo} from  "../redux/features/sortSlice"
+import {RootState} from "../redux/store"
+import algos,{algoType} from "../utils/algos"
 
 
 export default function BarsControls(){
     const dispatch  = useDispatch()
-    const  state = useSelector(state => state)
-    const handleChange = (e:  React.ChangeEvent<HTMLSelectElement>) => { console.log("changed") }
+    const  currentAlgo = useSelector((state: RootState)=> state.sort.algorithm)
+
+    const handleChange = (e:  React.ChangeEvent<HTMLSelectElement>) => { 
+        const selectedAlgo =  e.target.value 
+        const allAlgos = algos.map((algo) => algo.value) 
+
+        if(allAlgos.includes(selectedAlgo as algoType) ){
+            dispatch(updateAlgo(selectedAlgo as algoType))
+        }
+    }
 
     return  (
         <Controls>
@@ -24,10 +34,8 @@ export default function BarsControls(){
             </div>
 
             <div className="algo-selector"  >
-                <select onChange={handleChange}>
-                    <option value="BubbleSort">Bubble Sort</option>
-                    <option value="SelectionSort">SelectionSort</option>
-                    <option value="MergeSort">MergeSort</option>
+                <select onChange={handleChange} >
+                    {algos.map((algo,idx)  => <option key={idx} disabled={algo.value === currentAlgo} value={algo.value}>{algo.name}</option>)} 
                 </select>
             </div>
             

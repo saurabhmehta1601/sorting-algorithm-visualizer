@@ -1,3 +1,4 @@
+import { getAlgoByName,algoType } from "../../utils/algos"
 import { getRandomArray } from "../../utils/getRandomArray"
 import BubbleSort from "../../algorithms/BubbleSort"
 import {createSlice,PayloadAction} from "@reduxjs/toolkit"
@@ -5,6 +6,8 @@ import {createSlice,PayloadAction} from "@reduxjs/toolkit"
 export const INITIAL_ARRAY_SIZE = 20
 const MIN_ARRAY_ELEMENT_VALUE = 10
 const MAX_ARRAY_ELEMENT_VALUE = 60
+
+//Setting BUBBLESORT as initial algorithm 
 
 const initialState = {
     isRunning: false,
@@ -30,11 +33,11 @@ export const sortingSlice = createSlice({
                state.currentStepIndex -= 1 
             }
         },
-        updateAlgo: (state, action: PayloadAction<string>) => {
+        updateAlgo: (state, action: PayloadAction<algoType>) => {
             state.algorithm= action.payload
         },
         updateBarsCount: (state,action: PayloadAction<number>) => {
-            state.sortingSteps = BubbleSort(getRandomArray(action.payload,MIN_ARRAY_ELEMENT_VALUE,MAX_ARRAY_ELEMENT_VALUE)) 
+            state.sortingSteps = getAlgoByName(state.algorithm)(getRandomArray(action.payload,MIN_ARRAY_ELEMENT_VALUE,MAX_ARRAY_ELEMENT_VALUE)) 
             state.currentStepIndex = 0 
         },
         restartSort: (state) => {
@@ -42,7 +45,7 @@ export const sortingSlice = createSlice({
         },
         regenerateBars: (state) => {
             state.currentStepIndex =  0
-            state.sortingSteps = BubbleSort(getRandomArray(state.sortingSteps[0].arrayState.length, MIN_ARRAY_ELEMENT_VALUE,MAX_ARRAY_ELEMENT_VALUE))
+            state.sortingSteps = getAlgoByName(state.algorithm)(getRandomArray(state.sortingSteps[0].arrayState.length, MIN_ARRAY_ELEMENT_VALUE,MAX_ARRAY_ELEMENT_VALUE))
         }
     }
 })
