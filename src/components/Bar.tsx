@@ -12,18 +12,18 @@ type barProps = {
 /*
 Coloring strategy --
  * Current Iterating Element is YELLOW
- * During algorithm if element gets swapped it turns GREEN if it doesn't get swapped again instantly it loses GREEN color
+ * Initially all elements are  red , during algorithm if element gets swapped it turns GREEN if it doesn't get swapped again instantly it loses GREEN color
  * Sorted Elements are turned PINK
  * If sorting algorithm ends then all elements are turned PINK
 */
+
 const StyledBar= styled.div<barProps>`
     height: ${props => props.height +  "vh"} ; 
-    background-color: ${ props => props.doneSorting ? "pink" : props.isSorted ? "pink": props.isSwapped ?  "green" : props.isActive ? "yellow":  "red"};
-    width:0.5em ;
+    background-color: ${ props => props.doneSorting ? "var(--clr-pink)" : props.isSorted ? "var(--clr-pink)": props.isSwapped ?  "var(--clr-green)" : props.isActive ? "var(--clr-yellow)":  "var(--clr-red)"};
     flex: 1;
     position:relative;
     border:none ;
-    border-radius:15px;
+    border-radius:8px;
 `
 
 export default function Bar({height,isActive, isSorted, doneSorting,isSwapped }: barProps){

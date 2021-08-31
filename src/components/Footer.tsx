@@ -8,7 +8,9 @@ export default function Footer() {
 }
 
 const StyledFooter = styled.footer`
-    background-color:#333;
+    background-color: var(--clr-dark2) ;
+    word-spacing: 4px ; 
+    letter-spacing: 2px;
     color:#ddd;
     text-align: center ;
     padding: 1em ;

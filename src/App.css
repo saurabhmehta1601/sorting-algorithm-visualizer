@@ -1,6 +1,14 @@
 :root{
     --ff-heading: 'Allan', cursive;
     --ff-body: 'Lato', sans-serif;
+    --clr-red: #EF4444;
+    --clr-blue: #60A5FA;
+    --clr-green: #10B981;
+    --clr-pink: #BE185D ;
+    --clr-yellow: #FBBF24 ;
+    --clr-dark1: #111827;  
+    --clr-dark2: #1F2937;  
+    --clr-light1: #E5E7EB ; 
 }
 
 *,*::before,*::after {
@@ -15,6 +23,7 @@ body{
     display: flex;
     font-family: var(--ff-body) ;
     flex-direction: column;
+    background-color: var(--clr-dark1);
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -25,6 +34,9 @@ main{
     flex: 1;
     position: relative;
     padding-bottom:0.5em ;
-    background-color:purple;
 }
 
+button{
+    baclground-color: var(--clr-blue) ;
+    outline: none ;
+}

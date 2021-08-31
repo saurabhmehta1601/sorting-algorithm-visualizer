@@ -12,40 +12,43 @@ interface ICurrentIterationResult  {
     sortedElementIndexes: number[]
 }
 
-export default function BubbleSort(inputArr: number[]){
+export default function SelectionSort(inputArr: number[]){
     
-   const arr = [...inputArr]
    const sortedElementIndexes: number[] = []
 
    const initial = {
-    iteratingElementIndex: 0,
+    iteratingElementIndex: 1,
     swappedElementIndex: -1,
     arrayState: [...inputArr],
     sortedElementIndexes: [...sortedElementIndexes]
    }
 
    const results= [initial] 
-   let n = arr.length
-   let i, j
+   let n = inputArr.length
+   let i: number, j: number
 
-   for(i = 0; i< n-1 ;i++){
-       let isSorted = true 
-       for(j= 0; j< n-i-1 ; j++){
-
+for( i = 0; i < n; i++) {
+        // Finding the smallest number in the subarray
+        let min = i;
+        for( j = i+1; j < n; j++){
            const currentIterationResult : ICurrentIterationResult= {iteratingElementIndex: j,swappedElementIndex: -1,arrayState: [], sortedElementIndexes: [...sortedElementIndexes]}
-           if(arr[j] > arr[j+1]){
-              isSorted = false 
-              swap(arr,j,j+1)  
-              currentIterationResult.swappedElementIndex = j 
-           }
-           currentIterationResult.arrayState = [...arr]
-          results.push(currentIterationResult)
-       }
-       sortedElementIndexes.push(j)
-       if(isSorted){
-           break
-       }
-   }
+            if(inputArr[j] < inputArr[min]) {
+                min=j; 
+            }
+            currentIterationResult.arrayState = [...inputArr]
+            results.push(currentIterationResult)
+         }
+         if (min != i) {
+             // Swapping the elements
+             swap(inputArr,i,min)
+             results[results.length - 1].swappedElementIndex = min
+        }
+        sortedElementIndexes.push(i)
+        results[results.length -1].sortedElementIndexes = [...sortedElementIndexes]
+    }
+
+
+
 
 
 //    Added extra step manually similar to last step but including all array element index in sorted

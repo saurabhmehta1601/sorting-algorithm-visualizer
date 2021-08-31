@@ -1,14 +1,19 @@
-import React from "react"
+import  React from "react"
 import {useDispatch, useSelector} from "react-redux"
 import styled from "styled-components"
 import  ReactTooltip from "react-tooltip"
-import  {restartSort, regenerateBars} from  "../redux/features/sortSlice"
+import  {restartSort, regenerateBars, updateAlgo} from  "../redux/features/sortSlice"
+import {RootState} from "../redux/store"
+import algos from "../utils/algos"
 
 
 export default function BarsControls(){
     const dispatch  = useDispatch()
-    const  state = useSelector(state => state)
-    const handleChange = (e:  React.ChangeEvent<HTMLSelectElement>) => { console.log("changed") }
+    const  {algorithm: currentAlgo, currentStepIndex, isRunning}= useSelector((state: RootState)=> state.sort)
+
+    const handleChange = (e:  React.ChangeEvent<HTMLSelectElement>) => { 
+            dispatch(updateAlgo(e.target.value))
+    }
 
     return  (
         <Controls>
@@ -24,10 +29,8 @@ export default function BarsControls(){
             </div>
 
             <div className="algo-selector"  >
-                <select onChange={handleChange}>
-                    <option value="BubbleSort">Bubble Sort</option>
-                    <option value="SelectionSort">SelectionSort</option>
-                    <option value="MergeSort">MergeSort</option>
+                <select onChange={handleChange} value={currentAlgo} disabled={isRunning || currentStepIndex !== 0}>
+                    {algos.map((algo,idx)  => <option key={idx} disabled={algo.value === currentAlgo} value={algo.value}>{algo.name}</option>)} 
                 </select>
             </div>
             
@@ -49,13 +52,10 @@ const Controls =  styled.div`
             border: none ;
             padding:  0.4em  0.9em ;
             border-radius:  4px;        
-            background-color: blue;
-            color:  white;
             font-size:  1rem ;
             font-weight:  700 ;
 
             i{
-                color: wheat;
                 font-size: 1.4rem ;
             }
 
@@ -78,15 +78,17 @@ const Controls =  styled.div`
 
         select {
             word-spacing:4px;
-            color:#eee;
+            padding: 0.225em; 
             font-size:  1rem ;
             border: none ;
+            color: var(--clr-light1) ;
             background: none ;
             font-weight: bold ;
             outline:  none ;
         }
         option {
-            background-color:  #333;
+            padding: 0.225em; 
+            background-color:  var(--clr-dark1);
         }
 
     } 

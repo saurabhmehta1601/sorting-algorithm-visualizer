@@ -30,11 +30,11 @@ export default function Header () {
 
 const StyledHeader = styled.header`
     display:flex ;
-    background-color: #333 ;
     color: #ddd; 
     padding: 1em ;
     margin: 0; 
     width:100vw ; 
+    background-color: var(--clr-dark2);
 
     .logo{
         letter-spacing:  2px ;
