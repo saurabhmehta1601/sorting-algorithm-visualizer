@@ -17,7 +17,7 @@ export default function Header () {
 
     return ( <StyledHeader>
         <div className="logo">
-           <h1> Sorting Visualizer </h1>
+           <h1> Magical Sorting Bars</h1>
         </div>
         <div className="controls">
             <div className="control-group">
