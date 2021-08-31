@@ -9,3 +9,4 @@ You can see the live hosted version of <a target="_blank" href="http://magicalba
 ## Setup
 1. Clone the repo
 2. Run command `yarn install` .
+3. Once dependencies are installed run `yarn start` .
