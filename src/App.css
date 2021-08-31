@@ -37,6 +37,5 @@ main{
 }
 
 button{
-    baclground-color: var(--clr-blue) ;
     outline: none ;
 }

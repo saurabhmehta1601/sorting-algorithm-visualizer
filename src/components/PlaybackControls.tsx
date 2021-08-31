@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import Slider from "react-rangeslider"
-import React, { useState } from "react"
+import  { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../redux/store"
 import {increaseCurrentStepIndex,decreaseCurrentStepIndex,setRunningState} from "../redux/features/sortSlice"
@@ -106,7 +106,7 @@ const StyledControl= styled.div`
     .slider{
         display: block; 
         width:min(60vw, 540px);
-        margin: auto ;
+        margin: auto;
     }
 
     .rangeslider-horizontal .rangeslider__fill {

@@ -2,7 +2,6 @@ import React, {useState} from "react"
 import {useDispatch} from "react-redux"
 import styled from "styled-components"
 import { INITIAL_ARRAY_SIZE } from "../redux/features/sortSlice"
-
 import {updateBarsCount} from "../redux/features/sortSlice"
 
 export default function Header () {
