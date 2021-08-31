@@ -1,4 +1,4 @@
-import {ICurrentIterationResult,swap} from "../utils/algos"
+import {ICurrentIterationResult} from "../utils/algos"
 
 export default function InsertionSort(inputArr: number[]){
     
@@ -13,7 +13,6 @@ export default function InsertionSort(inputArr: number[]){
 
    const results= [initial] 
    let n = inputArr.length
-   let i: number, j: number
 
 //    main sorting logic
  for (let i = 1; i < n; i++) {
