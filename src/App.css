@@ -2,11 +2,13 @@
     --ff-heading: 'Allan', cursive;
     --ff-body: 'Lato', sans-serif;
     --clr-red: #EF4444;
+    --clr-blue: #60A5FA;
     --clr-green: #10B981;
     --clr-pink: #BE185D ;
     --clr-yellow: #FBBF24 ;
     --clr-dark1: #111827;  
     --clr-dark2: #1F2937;  
+    --clr-light1: #E5E7EB ; 
 }
 
 *,*::before,*::after {
@@ -35,5 +37,6 @@ main{
 }
 
 button{
+    baclground-color: var(--clr-blue) ;
     outline: none ;
 }

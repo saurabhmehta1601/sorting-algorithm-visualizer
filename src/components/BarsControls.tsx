@@ -52,13 +52,10 @@ const Controls =  styled.div`
             border: none ;
             padding:  0.4em  0.9em ;
             border-radius:  4px;        
-            background-color: blue;
-            color:  white;
             font-size:  1rem ;
             font-weight:  700 ;
 
             i{
-                color: wheat;
                 font-size: 1.4rem ;
             }
 
@@ -81,15 +78,17 @@ const Controls =  styled.div`
 
         select {
             word-spacing:4px;
-            color:#eee;
+            padding: 0.225em; 
             font-size:  1rem ;
             border: none ;
+            color: var(--clr-light1) ;
             background: none ;
             font-weight: bold ;
             outline:  none ;
         }
         option {
-            background-color:  #333;
+            padding: 0.225em; 
+            background-color:  var(--clr-dark1);
         }
 
     } 
