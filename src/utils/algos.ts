@@ -1,4 +1,5 @@
 import BubbleSort from "../algorithms/BubbleSort"
+import SelectionSort from "../algorithms/SelectionSort"
 
 export type algoType  = "BubbleSort" | "SelectionSort" | "InsertionSort"
 
@@ -19,7 +20,7 @@ export const getAlgoByName = (algoName: string ) => {
         return BubbleSort
     }
     if(algoName === "SelectionSort"){
-        //return SelectionSort
+        return SelectionSort
     }
     if(algoName === "InsertionSort"){
         //return InsertionSort

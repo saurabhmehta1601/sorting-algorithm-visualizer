@@ -43,13 +43,15 @@ export default function BubbleSort(inputArr: number[]){
        }
        sortedElementIndexes.push(j)
        if(isSorted){
-            // Since no swap in iteration all elements are sorted so inserting an extra array state similar to last one but with
-           // all elements as sorted
-           
-           const sortedIndexes =  Array.from(Array(n)).map((_i,idx) => idx)
-            results.push({...results[results.length - 1], sortedElementIndexes: sortedIndexes})
            break
        }
    }
+
+
+//    Added extra step manually similar to last step but including all array element index in sorted
+//    indexes since sorting algo is over .
+    const sortedIndexes =  Array.from(Array(n)).map((_i,idx) => idx)
+    results.push({...results[results.length - 1], sortedElementIndexes: sortedIndexes})
+
     return results
 }
