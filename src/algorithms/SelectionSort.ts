@@ -1,16 +1,4 @@
- //function to swap two numbers in an array 
-function swap(arr: number[], num1: number , num2 : number) {
-    const temp = arr[num1];
-    arr[num1] = arr[num2];
-    arr[num2] = temp;
-}
-
-interface ICurrentIterationResult  {
-    iteratingElementIndex: number,
-    swappedElementIndex: number,
-    arrayState: number[],
-    sortedElementIndexes: number[]
-}
+import {ICurrentIterationResult,swap} from "../utils/algos"
 
 export default function SelectionSort(inputArr: number[]){
     
@@ -27,6 +15,7 @@ export default function SelectionSort(inputArr: number[]){
    let n = inputArr.length
    let i: number, j: number
 
+//    main sorting logic
 for( i = 0; i < n; i++) {
         // Finding the smallest number in the subarray
         let min = i;
@@ -46,10 +35,6 @@ for( i = 0; i < n; i++) {
         sortedElementIndexes.push(i)
         results[results.length -1].sortedElementIndexes = [...sortedElementIndexes]
     }
-
-
-
-
 
 //    Added extra step manually similar to last step but including all array element index in sorted
 //    indexes since sorting algo is over .

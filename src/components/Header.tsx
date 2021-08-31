@@ -22,7 +22,7 @@ export default function Header () {
         <div className="controls">
             <div className="control-group">
                 <label htmlFor="bars-adjust">Adjust Bars</label>    
-                <input value={barsCount} name="bars-adjust"  onChange={handleBarWidthChange} type="range" min={10}  max={100} />
+                <input value={barsCount} name="bars-adjust"  onChange={handleBarWidthChange} type="range" min={10}  max={80} />
             </div>
         </div>
             </StyledHeader>)

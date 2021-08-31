@@ -1,17 +1,4 @@
- //function to swap two numbers in an array 
-function swap(arr: number[], num1: number , num2 : number) {
-    const temp = arr[num1];
-    arr[num1] = arr[num2];
-    arr[num2] = temp;
-}
-
-interface ICurrentIterationResult  {
-    iteratingElementIndex: number,
-    swappedElementIndex: number,
-    arrayState: number[],
-    sortedElementIndexes: number[]
-}
-
+import {ICurrentIterationResult,swap} from "../utils/algos"
 export default function BubbleSort(inputArr: number[]){
     
    const arr = [...inputArr]
@@ -28,6 +15,7 @@ export default function BubbleSort(inputArr: number[]){
    let n = arr.length
    let i, j
 
+//    main sorting logic
    for(i = 0; i< n-1 ;i++){
        let isSorted = true 
        for(j= 0; j< n-i-1 ; j++){
@@ -46,7 +34,6 @@ export default function BubbleSort(inputArr: number[]){
            break
        }
    }
-
 
 //    Added extra step manually similar to last step but including all array element index in sorted
 //    indexes since sorting algo is over .
