@@ -1,6 +1,12 @@
 :root{
     --ff-heading: 'Allan', cursive;
     --ff-body: 'Lato', sans-serif;
+    --clr-red: #EF4444;
+    --clr-green: #10B981;
+    --clr-pink: #BE185D ;
+    --clr-yellow: #FBBF24 ;
+    --clr-dark1: #111827;  
+    --clr-dark2: #1F2937;  
 }
 
 *,*::before,*::after {
@@ -15,6 +21,7 @@ body{
     display: flex;
     font-family: var(--ff-body) ;
     flex-direction: column;
+    background-color: var(--clr-dark1);
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -25,7 +32,6 @@ main{
     flex: 1;
     position: relative;
     padding-bottom:0.5em ;
-    background-color:purple;
 }
 
 button{

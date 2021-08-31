@@ -18,7 +18,7 @@ Coloring strategy --
 */
 const StyledBar= styled.div<barProps>`
     height: ${props => props.height +  "vh"} ; 
-    background-color: ${ props => props.doneSorting ? "pink" : props.isSorted ? "pink": props.isSwapped ?  "green" : props.isActive ? "yellow":  "red"};
+    background-color: ${ props => props.doneSorting ? "var(--clr-pink)" : props.isSorted ? "var(--clr-pink)": props.isSwapped ?  "var(--clr-green)" : props.isActive ? "var(--clr-yellow)":  "var(--clr-red)"};
     width:0.5em ;
     flex: 1;
     position:relative;

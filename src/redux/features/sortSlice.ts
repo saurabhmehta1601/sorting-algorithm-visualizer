@@ -35,7 +35,7 @@ export const sortingSlice = createSlice({
         },
         updateAlgo: (state, action: PayloadAction<string>) => {
             state.algorithm= action.payload
-            //Changing algo clears the sorting step only keep the one you're using
+            //Changing algo clears the existing sorting steps and generates new for the active algo 
         },
         updateBarsCount: (state,action: PayloadAction<number>) => {
             state.sortingSteps = getAlgoByName(state.algorithm)(getRandomArray(action.payload,MIN_ARRAY_ELEMENT_VALUE,MAX_ARRAY_ELEMENT_VALUE)) 
