@@ -8,7 +8,7 @@ import algos from "../utils/algos"
 
 export default function BarsControls(){
     const dispatch  = useDispatch()
-    const  {algorithm: currentAlgo,  isRunning}= useSelector((state: RootState)=> state.sort)
+    const  {algorithm: currentAlgo,  isRunning,currentStepIndex}= useSelector((state: RootState)=> state.sort)
 
     const handleChange = (e:  React.ChangeEvent<HTMLSelectElement>) => { 
             dispatch(updateAlgo(e.target.value))
@@ -27,8 +27,8 @@ export default function BarsControls(){
                 </button>
             </div>
 
-            <div data-tip={isRunning ? "Stop animation before selecting algorithm" : "Select sorting algorithm (Bars will be regenerated)"} data-type="info" className="algo-selector"  >
-                <select onChange={handleChange} value={currentAlgo} disabled={isRunning }>
+            <div data-tip={isRunning || currentStepIndex !==0 ? "Stop animation before selecting algorithm and restart sort" : "Select sorting algorithm (Bars will be regenerated)"} data-type="info" className="algo-selector"  >
+                <select onChange={handleChange} value={currentAlgo} disabled={isRunning ||  currentStepIndex !== 0}>
                     {algos.map((algo,idx)  => <option key={idx} disabled={algo.value === currentAlgo} value={algo.value}>{algo.name}</option>)} 
                 </select>
             </div>
