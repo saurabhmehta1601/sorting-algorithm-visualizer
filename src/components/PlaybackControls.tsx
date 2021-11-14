@@ -73,7 +73,8 @@ export default function  PlaybackControls(){
 }
 
 const StyledControl= styled.div`
-    
+    margin-bottom:1.5em ; 
+
     button {
         background: none ;
         border: none ;
@@ -99,8 +100,8 @@ const StyledControl= styled.div`
     .playback-controls{
         display: flex;
         justify-content: space-around;
-        width:30vw ;
-        margin: 4vh auto 2vh; 
+        width:min(80vw,320px) ;
+        margin: 2em auto 2.5em; 
     }
     
     .slider{
