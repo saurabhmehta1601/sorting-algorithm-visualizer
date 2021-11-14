@@ -16,6 +16,7 @@ export default function BarsControls(){
 
     return  (
         <Controls>
+           {/* button group */}
             <div className="bars-state-controls">
                 <button onClick={() => dispatch(restartSort())}>
                     <p data-tip="click to  restart the bars sorting from beginning"  data-type="info">RESTART  SORT </p>
@@ -27,19 +28,21 @@ export default function BarsControls(){
                 </button>
             </div>
 
+            {/* sorting algorithm selector dropdown  */}
             <div data-tip={isRunning || currentStepIndex !==0 ? "Stop animation before selecting algorithm and restart sort" : "Select sorting algorithm (Bars will be regenerated)"} data-type="info" className="algo-selector"  >
                 <select onChange={handleChange} value={currentAlgo} disabled={isRunning ||  currentStepIndex !== 0}>
                     {algos.map((algo,idx)  => <option key={idx} disabled={algo.value === currentAlgo} value={algo.value}>{algo.name}</option>)} 
                 </select>
             </div>
            <ReactTooltip /> 
+
+
         </Controls>
     )
 }
 
 const Controls =  styled.div`
-    display: flex ;
-    align-items:center ;
+    padding:0.4em ;
 
     .bars-state-controls{
         padding:  1em  3em ; 
@@ -73,6 +76,7 @@ const Controls =  styled.div`
     .algo-selector{
         margin-left:   auto ;
         padding:  1em  2em  ; 
+        text-align:  right ;
 
         select {
             word-spacing:4px;
@@ -89,5 +93,8 @@ const Controls =  styled.div`
             background-color:  var(--clr-dark1);
         }
     } 
+     @media (min-width: 768px) {
+        display: flex;
+      }
 `
 
