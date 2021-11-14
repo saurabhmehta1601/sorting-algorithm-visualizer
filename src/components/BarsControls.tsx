@@ -47,6 +47,7 @@ const Controls =  styled.div`
     .bars-state-controls{
         padding:  1em  3em ; 
         display:  flex ;
+        justify-content:center;
         column-gap:  1em ;
 
         button {
@@ -76,7 +77,7 @@ const Controls =  styled.div`
     .algo-selector{
         margin-left:   auto ;
         padding:  1em  2em  ; 
-        text-align:  right ;
+        text-align:  center;
 
         select {
             word-spacing:4px;

@@ -15,9 +15,11 @@ export default function Header () {
     }
 
     return ( <StyledHeader>
+            {/* App logo */}
         <div className="logo">
            <h1> Magical Sorting Bars</h1>
         </div>
+            {/* Bar count control slider */}
         <div className="controls">
             <div className="control-group">
                 <label htmlFor="bars-adjust">Adjust Bars</label>    
@@ -28,10 +30,10 @@ export default function Header () {
 }
 
 const StyledHeader = styled.header`
-    display:flex ;
     color: #ddd; 
     padding: 1em ;
     margin: 0; 
+    display:flex ;
     width:100vw ; 
     background-color: var(--clr-dark2);
 
@@ -47,10 +49,14 @@ const StyledHeader = styled.header`
     .control-group {
         display: flex ;
         align-items:center;
-        column-gap:0.5em ;
+        column-gap:1.5em ;
     }
     label {
         font-weight: 900 ;
 
+    }
+    @media (max-width:768px){
+        display:block  ;
+        text-align:center ;
     }
 `
