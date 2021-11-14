@@ -48,6 +48,7 @@ const StyledHeader = styled.header`
 
     .control-group {
         display: flex ;
+        justify-content:center;
         align-items:center;
         column-gap:1.5em ;
     }
@@ -58,5 +59,6 @@ const StyledHeader = styled.header`
     @media (max-width:768px){
         display:block  ;
         text-align:center ;
+        background-color: var(--clr-dark1) ;
     }
 `
