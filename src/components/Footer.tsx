@@ -3,8 +3,8 @@ import styled from "styled-components"
 
 export default function Footer() {
     return ( <StyledFooter>
-            <p id="credit">Made with ❤️  by  <a target="_blank" href="https://saurabhmehta.vercel.app">Saurabh</a></p>
-            <p id="contact"><a target="_blank" href="https://saurabhmehta.vercel.app">
+            <p id="credit">Made with ❤️  by  <a rel="noreferrer" target="_blank" href="https://saurabhmehta.vercel.app">Saurabh</a></p>
+            <p id="contact"><a rel="noreferrer"  target="_blank" href="https://github.com/saurabhmehta1601/sorting-algorithm-visualizer">
             See the source code on <i className="fab fa-github"></i>
             </a></p>
     </StyledFooter>)
