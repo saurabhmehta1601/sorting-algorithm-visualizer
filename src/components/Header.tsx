@@ -3,6 +3,7 @@ import {useDispatch} from "react-redux"
 import styled from "styled-components"
 import { INITIAL_ARRAY_SIZE } from "../redux/features/sortSlice"
 import {updateBarsCount} from "../redux/features/sortSlice"
+import {HOME_PAGE_TITLE} from "../constants/HomePage"
 
 export default function Header () {
    
@@ -14,10 +15,10 @@ export default function Header () {
        setBarsCount(e.target.value) 
     }
 
-    return ( <StyledHeader>
+    return ( <StyledHeader data-testid="header">
             {/* App logo */}
         <div className="logo">
-           <h1> Magical Sorting Bars</h1>
+           <h1> {HOME_PAGE_TITLE} </h1>
         </div>
             {/* Bar count control slider */}
         <div className="controls">
