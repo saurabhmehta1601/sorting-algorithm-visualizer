@@ -15,13 +15,13 @@ export default function Header () {
        setBarsCount(e.target.value) 
     }
 
-    return ( <StyledHeader data-testid="header">
+    return ( <StyledHeader >
             {/* App logo */}
-        <div className="logo">
+        <div className="logo" data-testid="logo" >
            <h1> {HOME_PAGE_TITLE} </h1>
         </div>
             {/* Bar count control slider */}
-        <div className="controls">
+        <div className="controls" data-testid='controls' >
             <div className="control-group">
                 <label htmlFor="bars-adjust">Adjust Bars</label>    
                 <input value={barsCount} name="bars-adjust"  onChange={handleBarWidthChange} type="range" min={10}  max={80} />
@@ -35,8 +35,7 @@ const StyledHeader = styled.header`
     padding: 1em ;
     margin: 0; 
     display:flex ;
-    width:100vw ; 
-    background-color: var(--clr-dark2);
+    width:100vw ; background-color: var(--clr-dark2);
 
     .logo{
         letter-spacing:  2px ;

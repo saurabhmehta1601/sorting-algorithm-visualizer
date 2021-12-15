@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 import {HOME_PAGE_TITLE} from "../../src/constants/HomePage"
 describe('homepage', () => {
     beforeEach(() => {
