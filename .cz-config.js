@@ -41,6 +41,7 @@ module.exports = {
     { name: 'utils'},
     { name: 'algorithms'},
     { name: 'components'},
+    { name: 'jest'},
   ],
 
   scopeOverrides: {
