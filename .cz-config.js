@@ -43,6 +43,7 @@ module.exports = {
     { name: 'components'},
     { name: 'e2e'},
     { name: 'workflow'},
+    { name: 'jest'},
   ],
 
   scopeOverrides: {
