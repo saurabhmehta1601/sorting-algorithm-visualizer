@@ -1,16 +1,12 @@
-name: Sorting algorithm visualizer
+name: Run unit tests
 on: [push]
 jobs:
-  run-app-tests:
+  run-unit-test:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repository
       - uses: actions/checkout@v2
-      - name: setup nodejs and npm 
       - uses: actions/setup-node@v2
-      - with: 
+        with:
           node-version: '14'
-      - name: Install project dependencies
-      - run: npm i 
-      - name: Run tests
+      - run: npm install 
       - run: npm run test --watchAll=false
