@@ -23,7 +23,7 @@ const algos : IAlgo[]= [
 ]
  
 
-export const getAlgoByName = (algoName: string ) => {
+export const getAlgoByName = (algoName: algoType) => {
     if(algoName === "BubbleSort"){
         return BubbleSort
     }
@@ -33,11 +33,9 @@ export const getAlgoByName = (algoName: string ) => {
     if(algoName === "InsertionSort"){
         return InsertionSort
     }
-    
     //Default return 
     return BubbleSort
 }
-
  //function to swap two numbers in an array 
 export function swap(arr: number[], num1: number , num2 : number) {
     if( num1 < 0 || num1 >= arr.length || num2 < 0 || num2 >= arr.length)

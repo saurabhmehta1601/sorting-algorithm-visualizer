@@ -1,5 +1,5 @@
 // both endpoints a and b included
-const  getRandomNumber = (a:number,b:number) : number => a + Math.floor(Math.random() * (b- a + 1))
+export const  getRandomNumber = (a:number,b:number) : number => a + Math.floor(Math.random() * (b- a + 1))
 
 
 export const getRandomArray = (size:number , a:number , b : number) =>{
