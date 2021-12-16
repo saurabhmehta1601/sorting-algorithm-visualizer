@@ -13,4 +13,4 @@ jobs:
       - name: Install project dependencies
       - run: npm i 
       - name: Run tests
-      - run: npm test
+      - run: npm run test --watchAll=false
