@@ -23,7 +23,7 @@ const algos : IAlgo[]= [
 ]
  
 
-export const getAlgoByName = (algoName: algoType) => {
+export const getAlgoByName = (algoName: string) => {
     if(algoName === "BubbleSort"){
         return BubbleSort
     }
