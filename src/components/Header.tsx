@@ -19,6 +19,11 @@ export default function Header () {
             {/* App logo */}
         <div className="logo" data-testid="logo" >
            <h1> {HOME_PAGE_TITLE} </h1>
+           <div className="github-icon show-in-sm">
+                <a target="_blank" href="https://github.com/saurabhmehta1601/sorting-algorithm-visualizer">
+                    <i className="fa-brands fa-github"></i>
+                </a>
+           </div>
         </div>
             {/* Bar count control slider */}
         <div className="controls" data-testid='controls' >
@@ -27,6 +32,11 @@ export default function Header () {
                 <input value={barsCount} name="bars-adjust"  onChange={handleBarWidthChange} type="range" min={10}  max={80} />
             </div>
         </div>
+        <div className="github-icon show-in-lg">
+                <a target="_blank" href="https://github.com/saurabhmehta1601/sorting-algorithm-visualizer">
+                    <i className="fa-brands fa-github"></i>
+                </a>
+         </div>
             </StyledHeader>)
 }
 
@@ -35,11 +45,15 @@ const StyledHeader = styled.header`
     padding: 1em ;
     margin: 0; 
     display:flex ;
-    width:100vw ; background-color: var(--clr-dark2);
+    align-items:center ;
+    width:100vw ; 
+    background-color: var(--clr-dark1) ;
 
     .logo{
         letter-spacing:  2px ;
-        text-indent:  1.5em ;
+        padding: 1em ;
+        display: flex; 
+        justify-content: space-between;
     }
     .controls {
         margin-left: auto ;
@@ -56,9 +70,43 @@ const StyledHeader = styled.header`
         font-weight: 900 ;
 
     }
+    .github-icon{
+        margin-right: 12px;
+        a {
+            position: relative; 
+            display: block;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background: #333;
+            border-radius: 50%;
+            font-size: 30px;
+            color: #666;
+            transition: .5s;
+
+            &:hover {
+                color: #ffee10;
+                box-shadow: 0 0 5px #ffee10;
+                text-shadow: 0 0 5px #ffee10;
+            }
+        }
+    }
+    .show-in-sm{
+        display:none;
+    }
+    .show-in-lg{
+        display:block;
+    }
+
     @media (max-width:768px){
         display:block  ;
         text-align:center ;
-        background-color: var(--clr-dark1) ;
+        .show-in-sm{
+            display:block;
+        }
+        .show-in-lg{
+            display:none;
+        }
     }
 `
